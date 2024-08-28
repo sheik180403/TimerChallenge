@@ -1,16 +1,15 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const Result = forwardRef(function Result({ targetTime, remainingTime }, ref) {
   const dialog = useRef();
 
   const lost = remainingTime <= 0;
-  const formatTime = (remainingTime / 1000).toFixed(2);
+  const formatTime = (remainingTime / 1000).toFixed(2); //   toFixed give exactly decimal digit
 
   const score = Math.abs(
     Math.round(1 - (remainingTime / (targetTime * 1000)) * 100)
   );
-
-  //   toFixed give exactly decimal digit
 
   useImperativeHandle(ref, () => {
     return {
@@ -24,7 +23,7 @@ const Result = forwardRef(function Result({ targetTime, remainingTime }, ref) {
     dialog.current.close();
   };
 
-  return (
+  return createPortal(
     <dialog
       ref={dialog}
       className="lg:h-48 lg:w-1/4 rounded-md sm:h-16 sm:w-10"
@@ -45,7 +44,8 @@ const Result = forwardRef(function Result({ targetTime, remainingTime }, ref) {
           Close
         </button>
       </form>
-    </dialog>
+    </dialog>,
+    document.getElementById("model")
   );
 });
 
