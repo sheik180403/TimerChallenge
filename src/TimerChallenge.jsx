@@ -33,6 +33,7 @@ function TimerChallage({ title, targetTime }) {
     dialog.current.open();
     clearInterval(timer.current);
   };
+
   return (
     <>
       <Result
