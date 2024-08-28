@@ -40,7 +40,7 @@ const Result = forwardRef(function Result({ targetTime, remainingTime }, ref) {
           You stopped the timer with <strong>{formatTime} seconds left.</strong>
         </p>
       </div>
-      <form action="dialog" onClick={handleClose}>
+      <form onClick={handleClose}>
         <button className="lg:mt-5 border-2 text-sm rounded-md lg:ms-40 border-black p-1 px-2 ms-32 bg-black mb-5 text-white">
           Close
         </button>
