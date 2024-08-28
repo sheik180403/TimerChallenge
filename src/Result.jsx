@@ -26,7 +26,7 @@ const Result = forwardRef(function Result({ targetTime, remainingTime }, ref) {
   return createPortal(
     <dialog
       ref={dialog}
-      className="lg:h-48 lg:w-1/4 rounded-md sm:h-16 sm:w-10"
+      className="lg:h-48 lg:w-1/4 bg-black rounded-md sm:h-16 sm:w-10"
     >
       <h2 className="text-3xl text-center font-mono font-bold mt-4">
         {lost ? "Lost" : "Your Score : " + score}
